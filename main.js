@@ -5,9 +5,37 @@ jQuery(document).ready(function($) {
 	if( is_touch_device() == false ){
 		$('body').addClass( 'not-touch-device' );
 	}
+	
 /**
 	* Toggle expanded UI
 	*/
+$(window).scroll(function() {
+if ($(this).scrollTop() > 1){  
+    $('.btn').addClass("scroll");
+  }
+  else{
+    $('.btn').removeClass("scroll");
+  }
+});
+$(window).scroll(function() {
+if ($(this).scrollTop() > 1){  
+    $('#header img').addClass("scroll");
+  }
+  else{
+    $('#header img').removeClass("scroll");
+  }
+});
+$(window).scroll(function() {
+if ($(this).scrollTop() > 1){  
+    $('header').addClass("scroll");
+  }
+  else{
+    $('header').removeClass("scroll");
+  }
+});
+$('.scrolly').scrolly();
+	
+	
 	$('.toggle-button').click(function(e){
 		e.preventDefault();
 
