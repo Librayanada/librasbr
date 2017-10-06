@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
 		var window_offset = $(window).scrollTop();
 
 		// Adding scroll state
-		if( window_offset > 5 ){
+		if( window_offset > 1 ){
 			$('body').addClass( 'scrolling' );
 		} else {
 			$('body').removeClass( 'scrolling' );			
