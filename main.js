@@ -1,27 +1,4 @@
-jQuery(document).ready(function($) { 
-	/**
-	* Detect touch device
-	*/
-	if( is_touch_device() == false ){
-		$('body').addClass( 'not-touch-device' );
-	}
-
-	/**
-	* Scrolling state
-	*/
-	$(window).scroll( function(){
-
-		var window_offset = $(window).scrollTop();
-
-		// Adding scroll state
-		if( window_offset > 5 ){
-			$('body').addClass( 'scrolling' );
-		} else {
-			$('body').removeClass( 'scrolling' );			
-		}
-	});
-
-	/**
+/**
 	* Toggle expanded UI
 	*/
 	$('.toggle-button').click(function(e){
