@@ -1,3 +1,10 @@
+jQuery(document).ready(function($) { 
+	/**
+	* Detect touch device
+	*/
+	if( is_touch_device() == false ){
+		$('body').addClass( 'not-touch-device' );
+	}
 /**
 	* Toggle expanded UI
 	*/
