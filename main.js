@@ -5,8 +5,23 @@ jQuery(document).ready(function($) {
 	if( is_touch_device() == false ){
 		$('body').addClass( 'not-touch-device' );
 	}
-	
-/**
+
+	/**
+	* Scrolling state
+	*/
+	$(window).scroll( function(){
+
+		var window_offset = $(window).scrollTop();
+
+		// Adding scroll state
+		if( window_offset > 5 ){
+			$('body').addClass( 'scrolling' );
+		} else {
+			$('body').removeClass( 'scrolling' );			
+		}
+	});
+
+	/**
 	* Toggle expanded UI
 	*/
 	$('.toggle-button').click(function(e){
@@ -117,6 +132,80 @@ jQuery(document).ready(function($) {
 			scrollTop : respond_offset.top - 100
 		});
 	});
+
+	/**
+	* Materializing inputs and textareas
+	*/
+	$('#respond, .drawer-widgets, .entry-content').find('input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="search"], textarea').addClass('materialize-input');
+
+	$('.materialize-input').each(function(){
+
+		var input 		= $(this);
+		var id 			= input.attr('id');
+		var name 		= input.attr('name');
+		var placeholder = input.attr('placeholder');
+		var value 		= input.val();
+
+		// Wrap the input
+		input.wrap('<span class="material-input-wrap" id="material-input-wrap-'+name+'"></span>');
+
+		// Input does'nt have ID, add ID on the fly
+		if( typeof id == 'undefined' ){
+			input.attr( 'id', 'material-id-' + name );
+			id = 'material-id-' + name;
+		}
+
+		// input has ID
+		if( typeof id != 'undefined' ){
+
+			var label = $('label[for="'+id+'"]');
+
+			// Create label on the fly if the input has no label but have placeholder
+			if( label.length == 0 && typeof placeholder != 'undefined' ){
+				// Remove native placeholder
+				input.attr({ 'placeholder' : '', 'value' : '' });
+
+				// Prepend fake label
+				$('#material-input-wrap-'+name ).prepend('<label for="'+ id +'">'+ placeholder +'</label>');
+
+				// Mark the wrapper has labe
+				$('#material-input-wrap-'+name ).addClass('has-label');
+			}
+
+			// Input has label
+			if( label.length > 0 ){
+
+				// Move the label to input-wrap
+				label.prependTo( $('#material-input-wrap-'+name ) );
+
+				// Mark the wrapper has labe
+				$('#material-input-wrap-'+name ).addClass('has-label');
+			}
+		} 
+
+		// If input has been filled
+		if( value != '' ){
+			input.closest( '.material-input-wrap' ).addClass( 'filled' );	
+		}
+
+	});
+
+	$('body').on({
+		focusin: function(){
+			$(this).closest('.material-input-wrap').removeClass('focusout');
+			$(this).closest('.material-input-wrap').addClass('focus');
+		},
+		focusout: function(){
+			$(this).closest('.material-input-wrap').addClass('focusout');
+			$(this).closest('.material-input-wrap').removeClass('focus');
+
+			if( $(this).val() == '' ){
+				$(this).closest('.material-input-wrap').removeClass('filled');
+			} else {
+				$(this).closest('.material-input-wrap').addClass('filled');
+			}
+		}
+	}, '.material-input-wrap input, .material-input-wrap textarea');
 
 	/**
 	* Manually add ripple effect
