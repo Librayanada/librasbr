@@ -2,10 +2,9 @@
 
 .SliderName_3 {
 	width: 1000px;
-	height: 312px;
+	height: auto;
 	overflow: hidden;
 }
-
 .SliderNamePrev_3 {
 	background:transparent;
 	width: 50px;
