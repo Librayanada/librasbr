@@ -1,7 +1,7 @@
-#slider_container_3 { float: left; padding: 0; width: 1000px; border: 0px; background:transparent; }
+#slider_container_3 {padding: 0; width:auto; border: 0px; background:transparent; }
 
 .SliderName_3 {
-	width: 1000px;
+	width:auto;
 	height: auto;
 	overflow: hidden;
 }
