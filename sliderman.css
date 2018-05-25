@@ -1,4 +1,4 @@
-#slider_container_3 { float: left; padding: 0; width: 1000px; border: 0px background:white; }
+#slider_container_3 { float: left; padding: 0; width: 1000px; border: 0px; background:transparent; }
 
 .SliderName_3 {
 	width: 1000px;
@@ -7,7 +7,7 @@
 }
 
 .SliderNamePrev_3 {
-	background: url(../img/left.png) no-repeat left center;
+	background:transparent;
 	width: 50px;
 	height: 312px;
 	display: block;
@@ -18,7 +18,7 @@
 }
 
 .SliderNameNext_3 {
-	background: url(../img/right.png) no-repeat right center;
+	background:transparent;
 	width: 50px;
 	height: 312px;
 	display: block;
@@ -27,18 +27,6 @@
 	right: 0;
 	text-decoration: none;
 }
-
-.SliderName_3Description {
-	padding: 10px;
-	font-family: Tahoma,Arial,Helvetica;
-	font-size: 14px;
-	line-height: 30px;
-	letter-spacing: 1px;
-	text-align: center;
-	color: #ffffff;
-	text-shadow: 0 1px 3px #000000;
-}
-
 #SliderNameNavigation_3 { margin: 0; padding: 10px 0 0 0; height: 16px; text-align: center; overflow-y: hidden; }
 
 #SliderNameNavigation_3 a:link, #SliderNameNavigation_3 a:active, #SliderNameNavigation_3 a:visited, #SliderNameNavigation_3 a:hover{
